@@ -4,7 +4,7 @@ metadata:
   name: platforms-depl
 spec:
   replicas: 1
-  selector: 
+  selector:
     matchLabels:
       app: platformservice
   template:
@@ -15,4 +15,21 @@ spec:
       containers:
         - name: platformservice
           image: mjvstaden/platformservice:latest
-          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: platforms-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: platformservice
+  ports:
+  - name: platformservice
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+  - name: plafromgrpc
+    protocol: TCP
+    port: 666
+    targetPort: 666

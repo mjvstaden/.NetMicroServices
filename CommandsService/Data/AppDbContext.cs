@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CommandsService.Data 
 {
-  public class ApppDbContext : DbContext
+  public class AppDbContext : DbContext
   {
-    public ApppDbContext(DbContextOptions<ApppDbContext> opt) : base(opt) 
+    public AppDbContext(DbContextOptions<AppDbContext> opt) : base(opt) 
     {
 
     }
